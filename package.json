@@ -1,0 +1,13 @@
+{
+  "name": "generate-and-send-ic-document",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.5",
+    "axios": "^1.8.0",
+    "express": "^4.21.2"
+  }
+}
