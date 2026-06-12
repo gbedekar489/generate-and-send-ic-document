@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const sgMail = require("@sendgrid/mail");
+const FormData = require("form-data");
 
 const app = express();
 
@@ -95,11 +96,7 @@ app.post('/email-pdf', async (req, res) => {
       });
     }
 
-    const aemAuth = AEM_BEARER || req.header('Authorization');
-    if (!aemAuth) {
-      return res.status(401).json({ error: 'missing AEM Authorization' });
-    }
-
+    
     const pdfBuffer = await fetchPdfBuffer(documentId, serviceParams);
     const pdfBase64 = pdfBuffer.toString('base64');
 
