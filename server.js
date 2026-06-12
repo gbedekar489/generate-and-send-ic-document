@@ -8,18 +8,11 @@ const app = express();
 app.use(express.json());
 
 const SENDGRID_API_KEY = process.env.SEND_GRID_API_KEY;
-//const SENDGRID_FROM = process.env.SENDGRID_FROM;
-const SENDGRID_FROM = 'newgeebee@outlook.com'; 
+const SENDGRID_FROM = process.env.SENDGRID_FROM;
+const AEM_BEARER =  process.env.AEM_BEARER;
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY);
 }
-
-
-const AEM_BEARER = 'Basic Z2VlYmVlOmFkbWlu'; 
-
-
-// email-pdf endpoint here
-
 const port = process.env.PORT || 10000;
 
 app.listen(port, () => {
@@ -72,7 +65,6 @@ app.post('/email-pdf', async (req, res) => {
 
     const {
       documentId,
-      userId,
       entityNS,
       entityID,
       to,
@@ -93,11 +85,10 @@ app.post('/email-pdf', async (req, res) => {
 
     if (entityNS && entityID) {
       serviceParams = { entityNS, entityID };
-    } else if (userId) {
-      serviceParams = { userId };
-    } else {
+    } 
+     else {
       return res.status(400).json({
-        error: 'missing required parameters (userId OR entityNS/entityID)'
+        error: 'missing required parameters (entityNS/entityID)'
       });
     }
 
