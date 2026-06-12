@@ -6,6 +6,10 @@ const app = express();
 
 app.use(express.json());
 
+const SENDGRID_API_KEY = process.env.SEND_GRID_API_KEY;
+const AEM_BEARER = 'Basic Z2VlYmVlOmFkbWlu'; 
+
+
 // email-pdf endpoint here
 
 const port = process.env.PORT || 10000;
