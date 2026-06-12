@@ -7,6 +7,8 @@ const app = express();
 app.use(express.json());
 
 const SENDGRID_API_KEY = process.env.SEND_GRID_API_KEY;
+const SENDGRID_FROM = process.env.SENDGRID_FROM;
+
 const AEM_BEARER = 'Basic Z2VlYmVlOmFkbWlu'; 
 
 
