@@ -10,6 +10,10 @@ app.use(express.json());
 const SENDGRID_API_KEY = process.env.SEND_GRID_API_KEY;
 //const SENDGRID_FROM = process.env.SENDGRID_FROM;
 const SENDGRID_FROM = 'newgeebee@outlook.com'; 
+if (SENDGRID_API_KEY) {
+  sgMail.setApiKey(SENDGRID_API_KEY);
+}
+
 
 const AEM_BEARER = 'Basic Z2VlYmVlOmFkbWlu'; 
 
