@@ -8,7 +8,8 @@ const app = express();
 app.use(express.json());
 
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-const SENDGRID_FROM = process.env.SENDGRID_FROM;
+//const SENDGRID_FROM = process.env.SENDGRID_FROM;
+const SENDGRID_FROM = 'newgeebee@outlook.com'; 
 
 const AEM_BEARER = 'Basic Z2VlYmVlOmFkbWlu'; 
 
